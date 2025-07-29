@@ -1,0 +1,27 @@
+<div class="contact-banner">
+  <div class="banner-content">
+    <p class="lead mb-0 me-md-4">Interesse geweckt?</p>
+    <div class="buttons-wrapper">
+      <a [href]="'https://wa.me/' + whatsappNumber" target="_blank" class="btn btn-success btn-lg mx-2">
+        <i class="bi bi-whatsapp"></i> WhatsApp
+      </a>
+      <a [href]="'mailto:' + emailAddress" class="btn btn-secondary btn-lg mx-2">
+        <i class="bi bi-envelope"></i> E-Mail
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container product-grid">
+  <div class="row g-4">
+    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products">
+      <div class="card h-100 shadow-sm">
+        <img [src]="product.imageUrl" class="card-img-top" [alt]="product.name">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

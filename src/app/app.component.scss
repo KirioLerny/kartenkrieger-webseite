@@ -1,0 +1,39 @@
+.layout-shop {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  main {
+    flex: 1;
+  }
+}
+
+.layout-home {
+  .app-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(33, 37, 41, 0.75); // TODO: Transparenz einstellen, nach dem richtiges Bild da ist
+    backdrop-filter: blur(2px);
+  }
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.app-footer {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 999;
+
+  @media (min-width: 576px) {
+    padding-right: 400px;
+  }
+}

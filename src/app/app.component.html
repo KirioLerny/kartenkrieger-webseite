@@ -1,1 +1,23 @@
-<app-showcase></app-showcase>
+<div [ngClass]="{ 'layout-home': !shopVisible, 'layout-shop': shopVisible }">
+  <header *ngIf="shopVisible" class="text-center py-5 mb-4 bg-body-tertiary">
+    <div class="container">
+      <h1 class="fw-light">Deckboxen</h1>
+      <button (click)="showHomeView()" class="btn btn-outline-secondary mt-2">
+        &larr; Zurück zur Startseite
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <app-home *ngIf="!shopVisible" (showShop)="showShopView()"></app-home>
+    <app-showcase *ngIf="shopVisible"></app-showcase>
+  </main>
+
+  <footer class="app-footer text-center p-3">
+    <div class="container">
+      <small class="text-body-secondary">
+        &copy; 2025 Kartenkrieger | <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
+      </small>
+    </div>
+  </footer>
+</div>
