@@ -15,7 +15,7 @@ RUN rm -rf ./*
 
 COPY --from=builder /app/dist/kartenkrieger-webseite/browser/ .
 
-COPY ../nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
