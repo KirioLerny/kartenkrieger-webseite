@@ -15,7 +15,8 @@
 <div class="container product-grid">
   <div class="row g-4">
     <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products">
-      <div class="card h-100 shadow-sm">
+      <div class="card h-100 shadow-sm product-card-hover"
+           (click)="showProductModal(product)">
         <img [src]="product.imageUrl" class="card-img-top" [alt]="product.name">
         <div class="card-body">
           <h5 class="card-title">{{ product.name }}</h5>
@@ -23,5 +24,45 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+
+<div class="modal-overlay" *ngIf="selectedProduct" (click)="closeProductModal()">
+
+  <div class="modal-content" (click)="$event.stopPropagation()">
+
+    <button class="modal-close-button" (click)="closeProductModal()">&times;</button>
+
+    <div class="modal-body">
+      <div class="modal-image-container">
+        <img [src]="mainModalImageUrl" [alt]="selectedProduct.name">
+      </div>
+
+      <div class="modal-details-container">
+        <h2>{{ selectedProduct.name }}</h2>
+        <p *ngIf="selectedProduct.detailedDescription">
+          {{ selectedProduct.detailedDescription }}
+        </p>
+
+        <div class="additional-images"
+             *ngIf="selectedProduct.additionalImages && selectedProduct.additionalImages.length > 0">
+
+          <img [src]="selectedProduct.imageUrl"
+               [alt]="selectedProduct.name + ' Hauptbild'"
+               (mouseenter)="setMainModalImage(selectedProduct.imageUrl)"
+               (click)="setMainModalImage(selectedProduct.imageUrl)"
+               [class.active]="mainModalImageUrl === selectedProduct.imageUrl">
+
+          <img *ngFor="let img of selectedProduct.additionalImages"
+               [src]="img"
+               [alt]="selectedProduct.name + ' Detailbild'"
+               (mouseenter)="setMainModalImage(img)"
+               (click)="setMainModalImage(img)"
+               [class.active]="mainModalImageUrl === img">
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

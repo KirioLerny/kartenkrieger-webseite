@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-showcase',
@@ -9,27 +9,54 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./showcase.component.scss']
 })
 export class ShowcaseComponent {
+
+  public selectedProduct: any | null = null;
+
+  public mainModalImageUrl: string | null = null;
+
   products = [
     {
       name: 'Produktname 1',
       description: 'Eine kurze, coole Beschreibung.',
-      imageUrl: 'https://ultimateguard.com/thumbnail/4b/e0/51/1751519288/3D_UGD011616_0001_solo_400x400.webp'
+      imageUrl: 'https://ultimateguard.com/thumbnail/4b/e0/51/1751519288/3D_UGD011616_0001_solo_400x400.webp',
+      detailedDescription: 'Dies ist eine viel längere und detailliertere Beschreibung für Produkt 1, die alle wichtigen Features und Vorteile hervorhebt.',
+      additionalImages: [
+        'https://ultimateguard.com/thumbnail/c3/46/78/1736436771/3D_UGD011465_0001_400x400.webp',
+        'https://ultimateguard.com/thumbnail/f3/91/ac/1736436749/3D_UGD011464_0001_400x400.webp',
+        'https://ultimateguard.com/thumbnail/d1/1f/f3/1736436705/3D_UGD011462_0001_400x400.webp'
+      ]
     },
     {
       name: 'Produktname 2',
       description: 'Auch dieses Produkt ist super.',
-      imageUrl: 'https://ultimateguard.com/thumbnail/85/fa/eb/1751519352/3D_UGD011619_0001_solo_400x400.webp'
+      imageUrl: 'https://ultimateguard.com/thumbnail/85/fa/eb/1751519352/3D_UGD011619_0001_solo_400x400.webp',
+      detailedDescription: 'Mehr Details zu Produkt 2. Es ist bekannt für seine Langlebigkeit und das stilvolle Design',
+      additionalImages: [
+        'https://ultimateguard.com/thumbnail/85/fa/eb/1751519352/3D_UGD011619_0001_solo_400x400.webp',
+        'https://ultimateguard.com/thumbnail/85/fa/eb/1751519352/3D_UGD011619_0001_solo_400x400.webp'
+      ]
     },
     {
       name: 'Produktname 3',
       description: 'Beschreibung für das dritte Produkt.',
-      imageUrl: 'https://ultimateguard.com/thumbnail/59/c4/ab/1751519332/3D_UGD011618_0001_solo_400x400.webp'
+      imageUrl: 'https://ultimateguard.com/thumbnail/59/c4/ab/1751519332/3D_UGD011618_0001_solo_400x400.webp',
+      detailedDescription: 'Produkt 3 ist die perfekte Wahl für Einsteiger und Profis gleichermaßen. Hier sind einige Bilder:',
+      additionalImages: [
+        'https://ultimateguard.com/thumbnail/59/c4/ab/1751519332/3D_UGD011618_0001_solo_400x400.webp',
+        'https://ultimateguard.com/thumbnail/59/c4/ab/1751519332/3D_UGD011618_0001_solo_400x400.webp'
+      ]
     },
     {
       name: 'Produktname 4',
       description: 'Eine kurze, coole Beschreibung.',
-      imageUrl: 'https://ultimateguard.com/thumbnail/26/a4/27/1751519309/3D_UGD011617_0001_solo_400x400.webp'
-    },
+      imageUrl: 'https://ultimateguard.com/thumbnail/26/a4/27/1751519309/3D_UGD011617_0001_solo_400x400.webp',
+      detailedDescription: 'abcdefjcjökjököjöko öksoökncökonslnc nklsclöknsclöskn',
+      additionalImages: [
+        'https://ultimateguard.com/thumbnail/26/a4/27/1751519309/3D_UGD011617_0001_solo_400x400.webp',
+        'https://ultimateguard.com/thumbnail/26/a4/27/1751519309/3D_UGD011617_0001_solo_400x400.webp'
+      ]
+    }
+    /*
     {
       name: 'Produktname 5',
       description: 'Auch dieses Produkt ist super.',
@@ -110,8 +137,29 @@ export class ShowcaseComponent {
       description: 'Beschreibung für das dritte Produkt.',
       imageUrl: 'https://ultimateguard.com/thumbnail/72/2f/7c/1736348095/UGD011507_400x400.webp'
     }
+    */
   ];
 
   whatsappNumber = 4917647229853;
   emailAddress = 'ihre@email.de'; // TODO: Richtige Mail eintragen
+
+  showProductModal(product: any): void {
+    this.selectedProduct = product;
+
+    this.mainModalImageUrl = product.imageUrl;
+
+    document.body.classList.add('modal-open');
+  }
+
+  closeProductModal(): void {
+    this.selectedProduct = null;
+
+    this.mainModalImageUrl = null;
+
+    document.body.classList.remove('modal-open');
+  }
+
+  setMainModalImage(imageUrl: string): void {
+    this.mainModalImageUrl = imageUrl;
+  }
 }
