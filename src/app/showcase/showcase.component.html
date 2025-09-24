@@ -2,11 +2,11 @@
   <div class="banner-content">
     <p class="lead mb-0 me-md-4">Interesse geweckt?</p>
     <div class="buttons-wrapper">
-      <a [href]="'https://wa.me/' + whatsappNumber" target="_blank" class="btn btn-success btn-lg mx-2">
-        <i class="bi bi-whatsapp"></i> WhatsApp
+      <a [href]="'https://wa.me/' + whatsappNumber" target="_blank" mat-fab color="accent">
+        <mat-icon fontIcon="whatsapp"></mat-icon>
       </a>
-      <a [href]="'mailto:' + emailAddress" class="btn btn-secondary btn-lg mx-2">
-        <i class="bi bi-envelope"></i> E-Mail
+      <a [href]="'mailto:' + emailAddress" mat-fab color="primary">
+        <mat-icon fontIcon="mail"></mat-icon>
       </a>
     </div>
   </div>
@@ -15,54 +15,17 @@
 <div class="container product-grid">
   <div class="row g-4">
     <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products">
-      <div class="card h-100 shadow-sm product-card-hover"
-           (click)="showProductModal(product)">
-        <img [src]="product.imageUrl" class="card-img-top" [alt]="product.name">
-        <div class="card-body">
-          <h5 class="card-title">{{ product.name }}</h5>
-          <p class="card-text">{{ product.description }}</p>
-        </div>
-      </div>
+      <mat-card class="product-card-hover" (click)="showProductModal(product)">
+        <img mat-card-image [src]="product.imageUrl" [alt]="product.name">
+        <mat-card-header>
+          <mat-card-title>{{ product.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ product.description }}</p>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
 </div>
 
 
-<div class="modal-overlay" *ngIf="selectedProduct" (click)="closeProductModal()">
-
-  <div class="modal-content" (click)="$event.stopPropagation()">
-
-    <button class="modal-close-button" (click)="closeProductModal()">&times;</button>
-
-    <div class="modal-body">
-      <div class="modal-image-container">
-        <img [src]="mainModalImageUrl" [alt]="selectedProduct.name">
-      </div>
-
-      <div class="modal-details-container">
-        <h2>{{ selectedProduct.name }}</h2>
-        <p *ngIf="selectedProduct.detailedDescription">
-          {{ selectedProduct.detailedDescription }}
-        </p>
-
-        <div class="additional-images"
-             *ngIf="selectedProduct.additionalImages && selectedProduct.additionalImages.length > 0">
-
-          <img [src]="selectedProduct.imageUrl"
-               [alt]="selectedProduct.name + ' Hauptbild'"
-               (mouseenter)="setMainModalImage(selectedProduct.imageUrl)"
-               (click)="setMainModalImage(selectedProduct.imageUrl)"
-               [class.active]="mainModalImageUrl === selectedProduct.imageUrl">
-
-          <img *ngFor="let img of selectedProduct.additionalImages"
-               [src]="img"
-               [alt]="selectedProduct.name + ' Detailbild'"
-               (mouseenter)="setMainModalImage(img)"
-               (click)="setMainModalImage(img)"
-               [class.active]="mainModalImageUrl === img">
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>

@@ -19,3 +19,22 @@
 .content-container {
   max-width: 800px;
 }
+
+.header-text-container {
+  margin: 0 auto;
+}
+
+.header-text-container h1 {
+  font-size: 4.85em; // find better size
+}
+
+.same-width-button {
+  min-width: 235px; // size 231 - 234?
+  max-width: 30ch;
+}
+
+@media (max-width: 576px) {
+  .same-width-button {
+    min-width: 100%;
+  }
+}

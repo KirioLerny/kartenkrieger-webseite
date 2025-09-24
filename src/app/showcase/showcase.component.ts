@@ -1,18 +1,26 @@
-import {Component} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+
+import { ProductModalComponent } from '../product-modal/product-modal.component';
 
 @Component({
   selector: 'app-showcase',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatDialogModule
+  ],
   templateUrl: './showcase.component.html',
   styleUrls: ['./showcase.component.scss']
 })
 export class ShowcaseComponent {
-
-  public selectedProduct: any | null = null;
-
-  public mainModalImageUrl: string | null = null;
 
   products = [
     {
@@ -141,25 +149,15 @@ export class ShowcaseComponent {
   ];
 
   whatsappNumber = 4917647229853;
-  emailAddress = 'ihre@email.de'; // TODO: Richtige Mail eintragen
+  emailAddress = 'ihre@email.de';
+
+  constructor(private dialog: MatDialog) {}
 
   showProductModal(product: any): void {
-    this.selectedProduct = product;
-
-    this.mainModalImageUrl = product.imageUrl;
-
-    document.body.classList.add('modal-open');
-  }
-
-  closeProductModal(): void {
-    this.selectedProduct = null;
-
-    this.mainModalImageUrl = null;
-
-    document.body.classList.remove('modal-open');
-  }
-
-  setMainModalImage(imageUrl: string): void {
-    this.mainModalImageUrl = imageUrl;
+    this.dialog.open(ProductModalComponent, {
+      data: { product: product },
+      panelClass: 'custom-modal-panel'
+    });
   }
 }
+

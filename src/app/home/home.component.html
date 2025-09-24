@@ -1,12 +1,18 @@
 <div class="home-fullscreen-bg">
-  <div class="content-container text-center text-white">
-    <h1 class="display-3 fw-bold">Kartenkrieger</h1>
-    <p class="lead fw-normal">
-      Deine Quelle für hochwertige Deckboxen und Zubehör.
-    </p>
-    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mt-4">
-      <a [href]="cardmarketUrl" target="_blank" class="btn btn-outline-light btn-lg px-4">Cardmarket</a>
-      <button type="button" class="btn btn-success btn-lg px-4" (click)="onShowShopClick()">Deckboxen Shop</button>
+  <div class="content-container mat-typography text-center text-white">
+    <div class="header-text-container">
+      <h1 class="mat-display-3 fw-bold">Kartenkrieger</h1>
+      <p class="mat-body-1 lead fw-normal">
+        Deine Quelle für hochwertige Deckboxen und Zubehör.
+      </p>
+    </div>
+    <div class="buttons-container d-grid gap-3 d-sm-flex justify-content-sm-center mt-4">
+      <a [href]="cardmarketUrl" target="_blank" mat-stroked-button color="accent" class="same-width-button">
+        Cardmarket
+      </a>
+      <button mat-raised-button color="primary" (click)="onShowShopClick()" class="same-width-button">
+        Deckboxen Shop
+      </button>
     </div>
   </div>
 </div>

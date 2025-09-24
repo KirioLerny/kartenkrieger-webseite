@@ -1,0 +1,33 @@
+<mat-dialog-content class="modal-body">
+  <div class="modal-image-container">
+    <img [src]="mainModalImageUrl" [alt]="data.product.name">
+  </div>
+
+  <div class="modal-details-container">
+    <h2 mat-dialog-title>{{ data.product.name }}</h2>
+    <p *ngIf="data.product.detailedDescription">
+      {{ data.product.detailedDescription }}
+    </p>
+
+    <div class="additional-images"
+         *ngIf="data.product.additionalImages && data.product.additionalImages.length > 0">
+
+      <img [src]="data.product.imageUrl"
+           [alt]="data.product.name + ' Hauptbild'"
+           (mouseenter)="setMainModalImage(data.product.imageUrl)"
+           (click)="setMainModalImage(data.product.imageUrl)"
+           [class.active]="mainModalImageUrl === data.product.imageUrl">
+
+      <img *ngFor="let img of data.product.additionalImages"
+           [src]="img"
+           [alt]="data.product.name + ' Detailbild'"
+           (mouseenter)="setMainModalImage(img)"
+           (click)="setMainModalImage(img)"
+           [class.active]="mainModalImageUrl === img">
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="dialogRef.close()">Schließen</button>
+</mat-dialog-actions>
