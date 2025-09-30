@@ -1,22 +1,21 @@
-<div [ngClass]="{ 'layout-home': !shopVisible, 'layout-shop': shopVisible }">
-  <header *ngIf="shopVisible" class="text-center py-5 mb-4 bg-body-tertiary">
+<div [ngClass]="{ 'layout-home': isHome, 'layout-shop': !isHome }">
+  <header *ngIf="showHeader" class="text-center py-5 mb-4 bg-body-tertiary">
     <div class="container">
-      <h1 class="fw-light">Deckboxen</h1>
-      <button (click)="showHomeView()" class="btn btn-outline-secondary mt-2">
+      <h1 class="fw-light">Deckboxen Galerie</h1>
+      <a routerLink="/" class="btn btn-outline-secondary mt-2">
         &larr; Zurück zur Startseite
-      </button>
+      </a>
     </div>
   </header>
 
   <main>
-    <app-home *ngIf="!shopVisible" (showShop)="showShopView()"></app-home>
-    <app-showcase *ngIf="shopVisible"></app-showcase>
+    <router-outlet></router-outlet>
   </main>
 
   <footer class="app-footer text-center p-3">
     <div class="container">
       <small class="text-body-secondary">
-        &copy; 2025 Kartenkrieger | <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
+        &copy; 2025 Kartenkrieger | <a routerLink="/impressum">Impressum</a> | <a routerLink="/datenschutz">Datenschutz</a>
       </small>
     </div>
   </footer>
