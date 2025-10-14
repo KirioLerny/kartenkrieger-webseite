@@ -15,7 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
       <div class="text-gray-700 space-y-4">
         <div>
           <p class="font-semibold">Angaben gemäß § 5 DDG:</p>
-          <p>Seven Karcher</p>
+          <p>Sven Karcher</p>
           <p>August-Bebel-Str. 69</p>
           <p>76187 Karlsruhe</p>
         </div>
