@@ -1,31 +1,20 @@
-<div class="contact-banner">
-  <div class="banner-content">
-    <p class="lead mb-0 me-md-4">Interesse geweckt?</p>
-    <div class="buttons-wrapper">
-      <a [href]="'https://wa.me/' + whatsappNumber" target="_blank" mat-fab color="accent">
-        <mat-icon fontIcon="whatsapp"></mat-icon>
-      </a>
-      <a [href]="'mailto:' + emailAddress" mat-fab color="primary">
-        <mat-icon fontIcon="mail"></mat-icon>
-      </a>
+<div class="fixed z-50 bottom-8 right-8 bg-neutral text-neutral-content rounded-box shadow-lg p-6">
+</div>
+
+<div class="container mx-auto p-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div *ngFor="let product of products" class="card bg-base-100 shadow-xl transition-transform duration-200 ease-in-out hover:-translate-y-1 hover:shadow-2xl cursor-pointer" (click)="showProductModal(product)">
+      <figure><img [src]="product.imageUrl" [alt]="product.name" /></figure>
+      <div class="card-body">
+        <h2 class="card-title">{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="container product-grid">
-  <div class="row g-4">
-    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products">
-      <mat-card class="product-card-hover" (click)="showProductModal(product)">
-        <img mat-card-image [src]="product.imageUrl" [alt]="product.name">
-        <mat-card-header>
-          <mat-card-title>{{ product.name }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ product.description }}</p>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div>
-</div>
-
-
+<app-product-modal
+  *ngIf="isModalVisible"
+  [product]="selectedProduct"
+  (closeModal)="closeModal()">
+</app-product-modal>

@@ -1,26 +1,30 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-product-modal',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, MatButtonModule],
+  imports: [CommonModule],
   templateUrl: './product-modal.component.html',
   styleUrls: ['./product-modal.component.scss']
 })
-export class ProductModalComponent {
-  public mainModalImageUrl: string;
+export class ProductModalComponent implements OnInit {
+  @Input() product: any;
+  @Output() closeModal = new EventEmitter<void>();
 
-  constructor(
-    public dialogRef: MatDialogRef<ProductModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { product: any }
-  ) {
-    this.mainModalImageUrl = this.data.product.imageUrl;
+  public mainModalImageUrl: string = '';
+
+  ngOnInit(): void {
+    if (this.product) {
+      this.mainModalImageUrl = this.product.imageUrl;
+    }
   }
 
   setMainModalImage(imageUrl: string): void {
     this.mainModalImageUrl = imageUrl;
+  }
+
+  onClose(): void {
+    this.closeModal.emit();
   }
 }

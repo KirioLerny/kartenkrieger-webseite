@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-
 import { ProductModalComponent } from '../product-modal/product-modal.component';
 
 @Component({
@@ -12,10 +7,7 @@ import { ProductModalComponent } from '../product-modal/product-modal.component'
   standalone: true,
   imports: [
     CommonModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    MatDialogModule
+    ProductModalComponent
   ],
   templateUrl: './showcase.component.html',
   styleUrls: ['./showcase.component.scss']
@@ -151,13 +143,19 @@ export class ShowcaseComponent {
   whatsappNumber = 4917647229853;
   emailAddress = 'ihre@email.de';
 
-  constructor(private dialog: MatDialog) {}
+  selectedProduct: any = null;
+  isModalVisible = false;
+
+  constructor() {}
 
   showProductModal(product: any): void {
-    this.dialog.open(ProductModalComponent, {
-      data: { product: product },
-      panelClass: 'custom-modal-panel'
-    });
+    this.selectedProduct = product;
+    this.isModalVisible = true;
+  }
+
+  closeModal(): void {
+    this.isModalVisible = false;
+    this.selectedProduct = null;
   }
 }
 
