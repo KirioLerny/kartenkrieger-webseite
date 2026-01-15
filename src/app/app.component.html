@@ -1,5 +1,4 @@
 <div [ngClass]="{ 'layout-home': isHome, 'layout-shop': !isHome }">
-  <!-- Gallery Header - Slim Design -->
   <header *ngIf="showHeader" class="gallery-header sticky top-0 z-50 bg-base-200/95 backdrop-blur-sm border-b border-base-300">
     <div class="container mx-auto px-4 py-3 flex items-center justify-between">
       <a routerLink="/" class="btn btn-ghost btn-sm gap-2">
@@ -17,7 +16,6 @@
     <router-outlet></router-outlet>
   </main>
 
-  <!-- Fixed Contact Box - Right bottom, hides when at footer -->
   <div class="contact-box-fixed" *ngIf="showContactBox && !isAtFooter">
     <div class="contact-box">
       <div class="contact-row">

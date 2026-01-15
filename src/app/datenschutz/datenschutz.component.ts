@@ -14,6 +14,13 @@ export class DatenschutzComponent {
   constructor(private router: Router) {}
 
   goToHome(): void {
-    this.router.navigate(['/']);
+    void this.router.navigate(['/']);
+  }
+
+  scrollToBottom(): void {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth'
+    });
   }
 }
