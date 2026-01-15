@@ -14,6 +14,6 @@ export class ImpressumComponent {
   constructor(private router: Router) {}
 
   goToHome(): void {
-    this.router.navigate(['/']);
+    void this.router.navigate(['/']);
   }
 }
