@@ -14,6 +14,8 @@ import { ProductModalComponent } from '../product-modal/product-modal.component'
 })
 export class ShowcaseComponent {
 
+  whatsappNumber = '4917647229853';
+
   products = [
     {
       name: 'Produktname 1',
@@ -195,20 +197,9 @@ export class ShowcaseComponent {
       imageUrl: 'https://ultimateguard.com/thumbnail/26/a4/27/1751519309/3D_UGD011617_0001_solo_400x400.webp',
       detailedDescription: 'Detaillierte Beschreibung für Produkt 24. Turniertauglich.',
       additionalImages: []
-    },
-    {
-      name: 'Produktname 25',
-      description: 'Limitierte Edition mit besonderem Design.',
-      imageUrl: 'https://ultimateguard.com/thumbnail/1c/3e/85/1753429620/UGD011639_0001_400x400.webp',
-      detailedDescription: 'Detaillierte Beschreibung für Produkt 25. Exklusives Design nur für kurze Zeit verfügbar.',
-      additionalImages: [
-        'https://ultimateguard.com/thumbnail/1c/3e/85/1753429620/UGD011639_0001_400x400.webp',
-        'https://ultimateguard.com/thumbnail/51/fa/2a/1753429664/UGD011641_0001_400x400.webp'
-      ]
     }
   ];
 
-  whatsappNumber = 4917647229853;
   emailAddress = 'ihre@email.de';
 
   selectedProduct: any = null;

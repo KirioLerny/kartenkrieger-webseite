@@ -13,7 +13,7 @@ main {
 .app-footer {
   flex-shrink: 0;
   z-index: 50;
-  background-color: oklch(var(--b2) / 0.85);
+  background-color: hsl(var(--b2) / 0.85);
   backdrop-filter: blur(4px);
   height: 60px; // Fixed footer height
   display: flex;
@@ -42,19 +42,33 @@ main {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-// Contact Box - Wide 2-row layout
-.contact-box-wrapper {
+// ============================================
+// FIXED CONTACT BOX - Right bottom corner
+// ============================================
+.contact-box-fixed {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .contact-box {
-  background: oklch(var(--b1));
+  background: #1f2937;
   border-radius: 0.75rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  border: 1px solid oklch(var(--b3));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid #374151;
   padding: 0.75rem;
   display: flex;
   flex-direction: column;
@@ -67,11 +81,9 @@ main {
   gap: 0.5rem;
 }
 
-.contact-row-full {
-  .contact-link {
-    flex: 1;
-    justify-content: center;
-  }
+.contact-row-full .contact-link {
+  flex: 1;
+  justify-content: center;
 }
 
 .contact-link {
@@ -81,14 +93,14 @@ main {
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  transition: all 0.2s ease;
   font-size: 0.875rem;
   flex: 1;
-  background: oklch(var(--b2));
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease;
 
   &:hover {
-    background: oklch(var(--p));
-    color: oklch(var(--pc));
+    transform: translateY(-1px);
   }
 
   svg {
@@ -98,9 +110,24 @@ main {
   }
 }
 
-// Responsive adjustments
+.contact-email {
+  background: #4b5563;
+  &:hover { background: #6b7280; }
+}
+
+.contact-whatsapp {
+  background: #22c55e;
+  &:hover { background: #16a34a; }
+}
+
+.contact-cardmarket {
+  background: #3b82f6;
+  &:hover { background: #2563eb; }
+}
+
+// Responsive
 @media (max-width: 640px) {
-  .contact-box-wrapper {
+  .contact-box-fixed {
     bottom: 1rem;
     right: 1rem;
     left: 1rem;
@@ -113,7 +140,7 @@ main {
 }
 
 @media (min-width: 1920px) {
-  .contact-box-wrapper {
+  .contact-box-fixed {
     bottom: 2rem;
     right: 2rem;
   }
@@ -128,3 +155,4 @@ main {
     font-size: 0.95rem;
   }
 }
+
