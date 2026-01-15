@@ -1,41 +1,28 @@
-.layout-shop {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-
-  main {
-    flex: 1;
-  }
-}
-
-/*
-.layout-home {
-  .app-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(33, 37, 41, 0.75); // TODO: Transparenz einstellen, nach dem richtiges Bild da ist
-    backdrop-filter: blur(2px);
-  }
-}
-*/
 
 :host {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; /* Full viewport */
 }
 
 main {
-  flex: 1 0 auto;
+  flex: 1 0 auto; /* Growt, um Space zu füllen */
 }
 
 .app-footer {
   flex-shrink: 0;
-  position: relative;
   z-index: 999;
+  background-color: oklch(var(--b2) / 0.85);
+  backdrop-filter: blur(4px);
+}
 
-  @media (min-width: 576px) {
-    padding-right: 400px;
-  }
+.layout-home,
+.layout-shop {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Beide Layouts full-height */
+}
+
+.layout-home main {
+  padding: 0; /* Kein extra Padding auf Home, damit Hero full ist */
 }

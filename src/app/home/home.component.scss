@@ -1,3 +1,12 @@
+
+.hero {
+  position: relative; /* Sicherstellen, dass Overlay absolut positioniert ist */
+}
+
+.hero-content {
+  z-index: 10; /* Inhalt über Overlay schieben */
+}
+
 /*
 .home-fullscreen-bg {
   height: 100vh;

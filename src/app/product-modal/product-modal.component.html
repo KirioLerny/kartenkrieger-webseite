@@ -1,30 +1,30 @@
 <div class="modal modal-open">
-  <div class="modal-box w-11/12 max-w-5xl">
+  <div class="modal-box w-11/12 max-w-5xl bg-base-100">
+    <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" (click)="onClose()">✕</button>
     <div class="flex flex-col md:flex-row gap-8">
       <div class="md:w-1/2">
-        <img [src]="mainModalImageUrl" [alt]="product.name" class="w-full h-auto rounded-lg">
+        <img [src]="mainModalImageUrl" [alt]="product.name" class="w-full h-auto rounded-lg shadow-md">
         <div class="flex gap-3 flex-wrap mt-4" *ngIf="product.additionalImages && product.additionalImages.length > 0">
           <img [src]="product.imageUrl" [alt]="product.name + ' Hauptbild'"
                (mouseenter)="setMainModalImage(product.imageUrl)"
                (click)="setMainModalImage(product.imageUrl)"
-               [class.active]="mainModalImageUrl === product.imageUrl"
-               class="w-20 h-20 object-cover rounded-md border-2 border-transparent cursor-pointer hover:border-primary transition-all"
-               [ngClass]="{'border-primary scale-105': mainModalImageUrl === product.imageUrl}">
+               class="w-20 h-20 object-cover rounded-md border-2 cursor-pointer transition-all hover:opacity-80"
+               [ngClass]="mainModalImageUrl === product.imageUrl ? 'border-primary scale-105' : 'border-transparent'">
           <img *ngFor="let img of product.additionalImages" [src]="img" [alt]="product.name + ' Detailbild'"
                (mouseenter)="setMainModalImage(img)"
                (click)="setMainModalImage(img)"
-               [class.active]="mainModalImageUrl === img"
-               class="w-20 h-20 object-cover rounded-md border-2 border-transparent cursor-pointer hover:border-primary transition-all"
-               [ngClass]="{'border-primary scale-105': mainModalImageUrl === img}">
+               class="w-20 h-20 object-cover rounded-md border-2 cursor-pointer transition-all hover:opacity-80"
+               [ngClass]="mainModalImageUrl === img ? 'border-primary scale-105' : 'border-transparent'">
         </div>
       </div>
       <div class="md:w-1/2">
-        <h3 class="text-3xl font-bold">{{ product.name }}</h3>
-        <p class="py-4">{{ product.detailedDescription }}</p>
+        <h3 class="text-3xl font-bold text-base-content">{{ product.name }}</h3>
+        <p class="py-4 text-base-content/80">{{ product.detailedDescription }}</p>
       </div>
     </div>
     <div class="modal-action">
-      <button class="btn" (click)="onClose()">Schließen</button>
+      <button class="btn btn-primary" (click)="onClose()">Schließen</button>
     </div>
   </div>
+  <div class="modal-backdrop bg-black/50" (click)="onClose()"></div>
 </div>
