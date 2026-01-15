@@ -15,7 +15,7 @@ main {
   z-index: 50;
   background-color: hsl(var(--b2) / 0.85);
   backdrop-filter: blur(4px);
-  height: 60px; // Fixed footer height
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,14 +37,10 @@ main {
   min-height: 100vh;
 }
 
-// Gallery Header Styles
 .gallery-header {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-// ============================================
-// FIXED CONTACT BOX - Right bottom corner
-// ============================================
 .contact-box-fixed {
   position: fixed;
   bottom: 1.5rem;

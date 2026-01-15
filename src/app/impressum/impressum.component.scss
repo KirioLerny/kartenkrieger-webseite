@@ -3,7 +3,6 @@
   margin: 0 auto;
 }
 
-// Page Wrapper - Fit on one page
 .page-wrapper {
   min-height: calc(100vh - 60px);
   display: flex;
@@ -18,7 +17,6 @@
   margin: 0 auto;
 }
 
-// Page Header - Compact
 .page-header {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -37,7 +35,6 @@
   border-radius: 2px;
 }
 
-// Content Grid - Horizontal 3 columns
 .content-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -45,7 +42,6 @@
   margin-bottom: 1.5rem;
 }
 
-// Info Cards - Compact
 .info-card {
   border-radius: 0.75rem;
   padding: 1.25rem;
@@ -91,7 +87,6 @@
   }
 }
 
-// Contact Items - Compact
 .contact-item {
   display: flex;
   align-items: center;
@@ -119,13 +114,11 @@
   flex-shrink: 0;
 }
 
-// Action Buttons
 .action-buttons {
   display: flex;
   justify-content: center;
 }
 
-// Responsive Design
 @media (max-width: 768px) {
   .content-grid {
     grid-template-columns: 1fr;

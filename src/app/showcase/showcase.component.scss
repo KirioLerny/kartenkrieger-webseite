@@ -1,10 +1,9 @@
-﻿// Product Card Styles with Fixed Image Sizes
-.product-card {
+﻿.product-card {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-// Add spacing after product grid
+
 .product-grid {
   padding-bottom: 2rem;
 }

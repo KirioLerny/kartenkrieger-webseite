@@ -21,7 +21,6 @@ app-root {
   height: 100%;
 }
 
-// Line clamp utilities
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -29,12 +28,10 @@ app-root {
   overflow: hidden;
 }
 
-// Smooth scroll behavior
 html {
   scroll-behavior: smooth;
 }
 
-// Large screen optimizations (24"+)
 @media (min-width: 1920px) {
   html {
     font-size: 18px;
@@ -55,14 +52,12 @@ html {
   }
 }
 
-// Laptop screens (13-14")
 @media (min-width: 1024px) and (max-width: 1439px) {
   html {
     font-size: 15px;
   }
 }
 
-// Touch device optimizations
 @media (hover: none) and (pointer: coarse) {
   .btn {
     min-height: 44px;
