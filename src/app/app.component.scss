@@ -1,17 +1,17 @@
 
 :host {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Full viewport */
+  display: block;
 }
 
 main {
-  flex: 1 0 auto; /* Growt, um Space zu füllen */
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-footer {
   flex-shrink: 0;
-  z-index: 999;
+  z-index: 50;
   background-color: oklch(var(--b2) / 0.85);
   backdrop-filter: blur(4px);
 }
@@ -20,9 +20,112 @@ main {
 .layout-shop {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Beide Layouts full-height */
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.layout-shop {
+  height: auto;
+  min-height: 100vh;
+  overflow: auto;
 }
 
 .layout-home main {
-  padding: 0; /* Kein extra Padding auf Home, damit Hero full ist */
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+// Gallery Header Styles
+.gallery-header {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+// Always Visible Contact Box
+.contact-box-wrapper {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+}
+
+.contact-box {
+  background: oklch(var(--b1));
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid oklch(var(--b3));
+  padding: 1rem 1.25rem;
+  min-width: 200px;
+}
+
+.contact-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid oklch(var(--b3));
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+
+  &:hover {
+    background: oklch(var(--b2));
+    transform: translateX(4px);
+  }
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 640px) {
+  .contact-box-wrapper {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .contact-box {
+    min-width: 180px;
+    padding: 0.875rem 1rem;
+  }
+
+  .contact-link {
+    font-size: 0.875rem;
+    padding: 0.375rem 0.5rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .contact-box-wrapper {
+    bottom: 2rem;
+    right: 2rem;
+  }
+
+  .contact-box {
+    min-width: 240px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .contact-link {
+    font-size: 1.05rem;
+  }
 }

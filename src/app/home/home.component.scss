@@ -1,52 +1,87 @@
 
+.hero-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; // Important for flex children
+}
+
 .hero {
-  position: relative; /* Sicherstellen, dass Overlay absolut positioniert ist */
-}
-
-.hero-content {
-  z-index: 10; /* Inhalt über Overlay schieben */
-}
-
-/*
-.home-fullscreen-bg {
-  height: 100vh;
-  width: 100%;
-  box-sizing: border-box;
-
+  position: relative;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('https://mktg-assets.tcgplayer.com/content/channel-fireball/article-images/2020/11/gp5.jpg');
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  min-height: 0; // Important for flex children
 }
 
-.content-container {
-  max-width: 800px;
+.hero-content {
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
-.header-text-container {
+.hero-box {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   margin: 0 auto;
 }
 
-.header-text-container h1 {
-  font-size: 4.85em; // find better size
+.hero-title {
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.02em;
 }
 
-.same-width-button {
-  min-width: 235px; // size 231 - 234?
-  max-width: 30ch;
+.hero-tagline {
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-@media (max-width: 576px) {
-  .same-width-button {
-    min-width: 100%;
+.badge-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
   }
 }
 
-*/
+// Responsive adjustments
+@media (max-width: 640px) {
+  .hero-box {
+    margin: 0.5rem;
+    padding: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-title {
+    font-size: 6rem;
+  }
+
+  .hero-tagline {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .hero-title {
+    font-size: 7rem;
+  }
+
+  .hero-tagline {
+    font-size: 2.5rem;
+  }
+
+  .hero-box {
+    max-width: 70rem;
+  }
+}

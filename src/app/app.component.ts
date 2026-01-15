@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'kartenkrieger-webseite';
   isHome = true;
   showHeader = false;
+  cardmarketUrl = 'https://www.cardmarket.com/de/Magic/Users/Systemone';
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
