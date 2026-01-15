@@ -6,7 +6,7 @@ import { Router, RouterModule } from '@angular/router';
   selector: 'app-impressum',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './impressum.component.html', // Zurück zu templateUrl geändert
+  templateUrl: './impressum.component.html',
   styleUrls: ['./impressum.component.scss']
 })
 export class ImpressumComponent {
