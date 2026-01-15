@@ -12,7 +12,7 @@
 .product-image-container {
   position: relative;
   width: 100%;
-  padding-bottom: 100%; // 1:1 aspect ratio (square)
+  padding-bottom: 75%; // 4:3 aspect ratio - shows more of the image
   overflow: hidden;
   border-radius: 0.75rem;
   background: #f3f4f6;
@@ -95,5 +95,3 @@
     padding: 0.5rem 0.5rem 0;
   }
 }
-
-

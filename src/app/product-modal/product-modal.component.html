@@ -3,17 +3,19 @@
     <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" (click)="onClose()">✕</button>
     <div class="flex flex-col md:flex-row gap-8">
       <div class="md:w-1/2">
-        <img [src]="mainModalImageUrl" [alt]="product.name" class="w-full h-auto rounded-lg shadow-md">
+        <div class="modal-image-container">
+          <img [src]="mainModalImageUrl" [alt]="product.name" class="modal-main-image">
+        </div>
         <div class="flex gap-3 flex-wrap mt-4" *ngIf="product.additionalImages && product.additionalImages.length > 0">
           <img [src]="product.imageUrl" [alt]="product.name + ' Hauptbild'"
                (mouseenter)="setMainModalImage(product.imageUrl)"
                (click)="setMainModalImage(product.imageUrl)"
-               class="w-20 h-20 object-cover rounded-md border-2 cursor-pointer transition-all hover:opacity-80"
+               class="w-16 h-16 object-cover rounded-md border-2 cursor-pointer transition-all hover:opacity-80"
                [ngClass]="mainModalImageUrl === product.imageUrl ? 'border-primary scale-105' : 'border-transparent'">
           <img *ngFor="let img of product.additionalImages" [src]="img" [alt]="product.name + ' Detailbild'"
                (mouseenter)="setMainModalImage(img)"
                (click)="setMainModalImage(img)"
-               class="w-20 h-20 object-cover rounded-md border-2 cursor-pointer transition-all hover:opacity-80"
+               class="w-16 h-16 object-cover rounded-md border-2 cursor-pointer transition-all hover:opacity-80"
                [ngClass]="mainModalImageUrl === img ? 'border-primary scale-105' : 'border-transparent'">
         </div>
       </div>

@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'kartenkrieger-webseite';
   isHome = true;
   showHeader = false;
+  showContactBox = false;
   cardmarketUrl = 'https://www.cardmarket.com/de/Magic/Users/Systemone';
 
   constructor(private router: Router) {
@@ -20,6 +21,7 @@ export class AppComponent {
       if (event instanceof NavigationEnd) {
         this.isHome = event.url === '/' || event.url === '';
         this.showHeader = event.url === '/galerie';
+        this.showContactBox = event.url === '/galerie';
       }
     });
   }
