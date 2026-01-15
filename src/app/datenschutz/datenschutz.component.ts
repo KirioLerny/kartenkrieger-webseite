@@ -16,4 +16,11 @@ export class DatenschutzComponent {
   goToHome(): void {
     void this.router.navigate(['/']);
   }
+
+  scrollToBottom(): void {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth'
+    });
+  }
 }
