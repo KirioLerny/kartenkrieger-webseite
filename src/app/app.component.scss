@@ -31,6 +31,18 @@ main {
   display: block;
 }
 
+.layout-farbpalette {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.layout-farbpalette main {
+  flex: 1;
+  overflow: hidden;
+}
+
 .layout-shop {
   display: flex;
   flex-direction: column;

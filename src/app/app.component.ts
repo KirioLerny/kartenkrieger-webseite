@@ -12,6 +12,7 @@ import { Router, NavigationEnd, RouterModule } from '@angular/router';
 export class AppComponent {
   title = 'kartenkrieger-webseite';
   isHome = true;
+  isFarbpalette = false;
   showHeader = false;
   showContactBox = false;
   isAtFooter = false;
@@ -20,6 +21,7 @@ export class AppComponent {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.isHome = event.url === '/' || event.url === '';
+        this.isFarbpalette = event.url === '/farbpalette';
         this.showHeader = event.url === '/galerie';
         this.showContactBox = event.url === '/galerie';
         this.isAtFooter = false;

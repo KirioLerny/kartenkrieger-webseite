@@ -1,4 +1,4 @@
-<div [ngClass]="{ 'layout-home': isHome, 'layout-shop': !isHome }">
+<div [ngClass]="{ 'layout-home': isHome, 'layout-farbpalette': isFarbpalette, 'layout-shop': !isHome && !isFarbpalette }">
   <header *ngIf="showHeader" class="gallery-header sticky top-0 z-50 bg-base-200/95 backdrop-blur-sm border-b border-base-300">
     <div class="container mx-auto px-4 py-3 flex items-center justify-between">
       <a routerLink="/" class="btn btn-ghost btn-sm gap-2">
@@ -8,7 +8,12 @@
         Zurück
       </a>
       <h1 class="text-lg sm:text-xl font-semibold">Deckboxen Galerie</h1>
-      <div class="w-20"></div>
+      <a routerLink="/farbpalette" class="btn btn-primary btn-sm gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+        Farbpalette
+      </a>
     </div>
   </header>
 
@@ -46,7 +51,7 @@
   <footer class="app-footer text-center p-3">
     <div class="container mx-auto px-4">
       <small class="text-base-content/70">
-        &copy; 2025 Kartenkrieger | <a routerLink="/impressum">Impressum</a> | <a routerLink="/datenschutz">Datenschutz</a>
+        &copy; 2025 Kartenkrieger | <a routerLink="/faq">FAQ</a> | <a routerLink="/impressum">Impressum</a> | <a routerLink="/datenschutz">Datenschutz</a>
       </small>
     </div>
   </footer>
