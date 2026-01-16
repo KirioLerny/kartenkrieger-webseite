@@ -1,0 +1,38 @@
+<div class="page-wrapper bg-base-200">
+  <div class="content-container">
+    <div class="page-header">
+      <h1 class="page-title">Häufig gestellte Fragen</h1>
+      <div class="title-underline bg-primary"></div>
+    </div>
+
+    <div class="faq-list">
+      <div *ngFor="let item of faqItems; let i = index"
+           class="faq-item bg-base-100 border-base-300"
+           [class.is-open]="item.isOpen">
+        <button class="faq-question" (click)="toggleFaq(i)">
+          <span class="question-text">{{ item.question }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="chevron-icon"
+               [class.rotated]="item.isOpen"
+               fill="none"
+               viewBox="0 0 24 24"
+               stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="faq-answer" [class.show]="item.isOpen">
+          <p>{{ item.answer }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn btn-primary btn-sm" (click)="goToHome()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Zurück zur Startseite
+      </button>
+    </div>
+  </div>
+</div>
